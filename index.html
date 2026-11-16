@@ -134,7 +134,7 @@ async function share(){
 }
 
 /* ---------- 收集圖鑑：拍照後選火車類型，照片存進圖鑑 ---------- */
-const CLASSES = [{"id": "TAROKO", "name": "太魯閣號", "group": ""}, {"id": "PUYUMA", "name": "普悠瑪號", "group": ""}, {"id": "TZECHIANG", "name": "自強號", "group": ""}, {"id": "NEW_TZECHIANG", "name": "新自強號", "group": ""}, {"id": "CHUKUANG", "name": "莒光號", "group": ""}, {"id": "DISTRICT", "name": "區間車", "group": ""}, {"id": "CRUISE", "name": "郵輪列車", "group": ""}, {"id": "STEAM_TOUR", "name": "蒸汽觀光列車", "group": ""}, {"id": "FREIGHT", "name": "貨運列車", "group": ""}, {"id": "FUHSING", "name": "復興號", "group": ""}, {"id": "LOCAL", "name": "普快車", "group": ""}];
+const CLASSES = [{"id": "TAROKO", "name": "太魯閣號", "group": ""}, {"id": "PUYUMA", "name": "普悠瑪號", "group": ""}, {"id": "TZECHIANG", "name": "自強號", "group": ""}, {"id": "CHUKUANG", "name": "莒光號", "group": ""}, {"id": "DISTRICT", "name": "區間車", "group": ""}, {"id": "STEAM", "name": "蒸汽火車", "group": ""}, {"id": "FUHSING", "name": "復興號", "group": ""}];
 const loadBook = () => { try { return JSON.parse(localStorage.getItem('tc_book')) || {}; } catch { return {}; } };
 const saveBook = b => { try { localStorage.setItem('tc_book', JSON.stringify(b)); return true; } catch { return false; } };
 const preview = () => { const img = h('img'); img.src = last.url; img.alt = '剛拍的照片'; img.style.cssText = 'display:block;margin:8px auto;max-height:26dvh;max-width:100%;border-radius:12px;border:3px solid #fff'; return img; };

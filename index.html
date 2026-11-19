@@ -134,7 +134,7 @@ async function share(){
 }
 
 /* ---------- 收集圖鑑：拍照後選火車類型，照片存進圖鑑 ---------- */
-const CLASSES = [{"id": "TAROKO", "name": "太魯閣號", "group": ""}, {"id": "PUYUMA", "name": "普悠瑪號", "group": ""}, {"id": "TZECHIANG", "name": "自強號", "group": ""}, {"id": "CHUKUANG", "name": "莒光號", "group": ""}, {"id": "DISTRICT", "name": "區間車", "group": ""}, {"id": "STEAM", "name": "蒸汽火車", "group": ""}, {"id": "FUHSING", "name": "復興號", "group": ""}];
+const CLASSES = [{"id": "TAROKO", "name": "太魯閣號", "group": "臺鐵火車"}, {"id": "PUYUMA", "name": "普悠瑪號", "group": "臺鐵火車"}, {"id": "TZECHIANG", "name": "自強號", "group": "臺鐵火車"}, {"id": "CHUKUANG", "name": "莒光號", "group": "臺鐵火車"}, {"id": "DISTRICT", "name": "區間車", "group": "臺鐵火車"}, {"id": "STEAM", "name": "蒸汽火車", "group": "臺鐵火車"}, {"id": "FUHSING", "name": "復興號", "group": "臺鐵火車"}, {"id": "METRO", "name": "捷運", "group": "其他交通"}, {"id": "HSR", "name": "高鐵", "group": "其他交通"}, {"id": "FERRY", "name": "渡輪", "group": "其他交通"}, {"id": "LRT", "name": "輕軌", "group": "其他交通"}, {"id": "PHOTO_DIRECTOR", "name": "與主任的合照", "group": "合照"}, {"id": "PHOTO_PRINCIPAL", "name": "與校長的合照", "group": "合照"}, {"id": "PHOTO_GROUP", "name": "小組自拍合照", "group": "合照"}];
 const loadBook = () => { try { return JSON.parse(localStorage.getItem('tc_book')) || {}; } catch { return {}; } };
 const saveBook = b => { try { localStorage.setItem('tc_book', JSON.stringify(b)); return true; } catch { return false; } };
 const preview = () => { const img = h('img'); img.src = last.url; img.alt = '剛拍的照片'; img.style.cssText = 'display:block;margin:8px auto;max-height:26dvh;max-width:100%;border-radius:12px;border:3px solid #fff'; return img; };
@@ -145,7 +145,7 @@ function showPick(){
     if(c.group !== g){ g = c.group; pick.append(h('div', 'pg', g)); }
     const b = h('button', '', c.name); b.onclick = () => collect(c); pick.append(b);
   });
-  sheet.replaceChildren(h('h2', '', '拍好了！這是哪一種火車？'), preview(), pick,
+  sheet.replaceChildren(h('h2', '', '拍好了！要收集成哪一類？'), preview(), pick,
     buttons(['儲存照片', saveFile], ['分享', share, 'alt'], ['先不收集', closeSheet, 'alt']));
   sheet.classList.add('on'); sheet.scrollTop = 0;
 }
